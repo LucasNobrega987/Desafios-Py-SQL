@@ -1,0 +1,44 @@
+# Importação de componentes necessários do Flask e módulo para tratamento de erros
+from flask import Flask, request, jsonify, abort # type: ignore
+
+# Cria uma nova instância da aplicação Flask. '__name__' é usado para determinar o nome do módulo.
+app = Flask(__name__)
+
+# Inicializa uma lista que será usada para armazenar informações de interações entre personagens.
+# Isto é uma simplificação e simula um armazenamento de dados.
+interactions = []
+
+# Define uma rota com método POST para receber e processar interações entre personagens
+@app.route('/interaction', methods=['POST'])
+def add_interaction():
+    # Obtém os dados enviados na requisição POST como JSON
+    data = request.get_json()
+    # Verifica se a interação é especificamente do 4º livro
+    if data['book'] == "4":
+        # Adiciona os dados da interação recebida à lista de interações
+        interactions.append(data)
+        # Retorna uma resposta JSON indicando sucesso e o código de status HTTP 201
+        return jsonify({'message': 'Interaction added successfully'}), 201
+    else:
+        # Se a interação não for do 4º livro, retorna um erro 400 com uma descrição específica
+        return abort(400, description="Only interactions from book 4 are accepted.")
+
+# Ponto de entrada principal do script, verifica se este é o módulo que está sendo executado como principal
+if __name__ == '__main__':
+    # Executa a aplicação em modo de depuração. Isto é útil para desenvolvimento, mas não recomendado para produção.
+    app.run(debug=True)
+
+# Define uma rota na raiz que apenas retorna uma mensagem de saudação simples.
+@app.route('/')
+def home():
+    return "Hello, Flask is running!"
+
+# Duplicação da rota '/interaction' - teste.
+# Esta definição de função não será alcançada devido à duplicação com a mesma rota e método acima.
+@app.route('/interaction', methods=['POST'])
+def add_interaction():
+    data = request.get_json()
+    if int(data.get('book')) == 4:  # Converte o número do livro para inteiro e verifica se é 4
+        return jsonify({'message': 'Interaction added successfully'}), 201
+    else:
+        return abort(400, description="Only interactions from book 4 are accepted.")
