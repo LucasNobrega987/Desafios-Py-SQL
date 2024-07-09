@@ -1,0 +1,23 @@
+-- Cria uma tabela existente para armazenar os resultados das interações
+CREATE OR REPLACE TABLE Dataset.interacoes_resultados AS
+
+-- Seleciona e soma as interações por personagem e por livro, calculando também o total geral de interações
+SELECT 
+    personagem,
+    SUM(IF(livro = 1, peso, 0)) AS interacoes_livro1, -- Soma condicional das interações no Livro 1
+    SUM(IF(livro = 2, peso, 0)) AS interacoes_livro2, -- Soma condicional das interações no Livro 2
+    SUM(IF(livro = 3, peso, 0)) AS interacoes_livro3, -- Soma condicional das interações no Livro 3
+    SUM(peso) AS total_interacoes                    -- Soma total de todas as interações
+
+-- Subconsulta que combina entradas de duas colunas diferentes em uma única coluna de 'personagem'
+FROM (
+    SELECT `PERSONAGEM A` AS personagem, PESO, LIVRO FROM `Dataset.dataset1` -- Seleciona e renomeia PERSONAGEM A
+    UNION ALL
+    SELECT `PERSONAGEM B` AS personagem, PESO, LIVRO FROM `Dataset.dataset1` -- Seleciona e renomea PERSONAGEM B
+)
+
+-- Agrupa os resultados por personagem para que as somas sejam calculadas por personagem
+GROUP BY personagem
+
+-- Ordena os resultados pela soma total de interações, do maior para o menor
+ORDER BY total_interacoes DESC;
