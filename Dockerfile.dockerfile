@@ -1,4 +1,4 @@
-# Usa a imagem base do Python
+# imagem base do Python
 FROM python:3.8-slim
 
 # Define o diretório de trabalho
