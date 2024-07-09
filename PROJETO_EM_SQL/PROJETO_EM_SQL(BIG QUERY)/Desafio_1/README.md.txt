@@ -1,5 +1,5 @@
 Descrição da Minha Consulta SQL para Análise de Interações
-Para este projeto, criei uma consulta SQL complexa que tem como objetivo analisar as interações entre personagens, calculando o número total de interações que cada personagem teve em cada livro e também um total geral. Esta análise é feita a partir de dados armazenados no Google BigQuery.
+Para este projeto, criei uma consulta SQL, que tem como objetivo analisar as interações entre personagens, calculando o número total de interações que cada personagem teve em cada livro e também um total geral. Esta análise é feita a partir de dados armazenados no Google BigQuery.
 
 Estrutura e Funcionamento da Minha Consulta
 A minha consulta SQL é organizada da seguinte maneira:
