@@ -1,3 +1,24 @@
+
+# Meli Challenge
+
+## Descrição
+Este projeto implementa uma API Flask para o desafio Meli. A API permite adicionar interações entre personagens e consultar amigos em comum entre dois personagens.
+
+## Configuração do Ambiente
+
+### Requisitos
+- Python 3.8 ou superior
+- pip (gerenciador de pacotes Python)
+- Docker (opcional, se você quiser usar contêineres)
+
+### Instalação
+
+#### Clone o Repositório
+```bash
+git clone https://github.com/LucasNobrega987/meli-challenge.git
+cd meli-challenge
+
+------------------------------------------------
 Configuração do Ambiente de Desenvolvimento
 Para começar o desenvolvimento da minha API Flask, primeiro precisei configurar meu ambiente de desenvolvimento. Utilizei o Visual Studio Code (VSCode) como meu editor de código por sua versatilidade e suporte extensivo através de extensões.
 
