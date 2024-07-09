@@ -1,6 +1,6 @@
 Descrição do Processo de Construção e Execução da Consulta SQL
 Contexto do Projeto
-Fui desafiado a desenvolver uma solução que identificasse amigos em comum entre pares de personagens a partir de um conjunto de dados armazenados em um arquivo CSV. O objetivo era criar uma consulta SQL eficiente que pudesse ser executada no BigQuery, proporcionando insights valiosos sobre as interações entre personagens.
+Nesse caso desenvolvi uma solução que identificasse amigos em comum entre pares de personagens a partir de um conjunto de dados armazenados em um arquivo CSV. O objetivo era criar uma consulta SQL eficiente que pudesse ser executada no BigQuery, proporcionando insights sobre as interações entre personagens.
 
 Estratégia e Desenvolvimento
 Análise Inicial:
